@@ -18,7 +18,7 @@ BEGIN { *DEBUG = $ENV{'PERL_ROLE_HOOKS_DEBUG'} ? sub(){1} : sub(){0} };
 sub _croak {
 	my ($me, $msg, @args) = @_;
 	require Carp;
-	Carp::croak( @args ? sprintf($msg, @args) : $msg ); 
+	Carp::croak( @args ? sprintf($msg, @args) : $msg );
 }
 
 sub _carp {
@@ -440,6 +440,11 @@ to be using -- "Role::Tiny", "Moose::Role", "Mouse::Role", or "Role::Basic";
 roles built using Moo::Role are detected as "Role::Tiny".)
 
 =back
+
+=head1 ENVIRONMENT
+
+The environment variable C<PERL_ROLE_HOOKS_DEBUG> may be set to true to
+enable debugging messages.
 
 =head1 BUGS
 
