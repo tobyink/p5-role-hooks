@@ -4,3 +4,14 @@
 	issued  2020-02-18;
 	label   "Initial release".
 
+`Role-Hooks 0.002 cpan:TOBYINK`
+	issued  2020-10-23;
+	changeset [
+		item [
+			a dcs:Bugfix;
+			dcs:fixes RT#133595;
+			dcs:thanks cpan:DAKKAR;
+			label "Died applying a role to a non-Moo* class, with Moose loaded.";
+			comment "Fixed by using a variant of Safe::Isa to check metaclasses.";
+		];
+	].
