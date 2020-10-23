@@ -15,6 +15,9 @@ our %ARGS;
 
 BEGIN { *DEBUG = $ENV{'PERL_ROLE_HOOKS_DEBUG'} ? sub(){1} : sub(){0} };
 
+# limited version of Safe::Isa
+my $_isa = sub { ref( $_[0] ) and $_[0]->isa( $_[1] ) };
+
 sub _croak {
 	my ($me, $msg, @args) = @_;
 	require Carp;
@@ -50,13 +53,13 @@ sub is_role {
 	
 	if ($INC{'Moose/Meta/Role.pm'}
 	and do { require Moose::Util; 1 }
-	and Moose::Util::find_meta($target)->isa('Moose::Meta::Role')) {
+	and Moose::Util::find_meta($target)->$_isa('Moose::Meta::Role')) {
 		return 'Moose::Role';
 	}
 	
 	if ($INC{'Mouse/Meta/Role.pm'}
 	and do { require Mouse::Util; 1 }
-	and Mouse::Util::find_meta($target)->isa('Mouse::Meta::Role')) {
+	and Mouse::Util::find_meta($target)->$_isa('Mouse::Meta::Role')) {
 		return 'Mouse::Role';
 	}
 	
