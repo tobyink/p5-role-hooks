@@ -127,13 +127,13 @@ sub after_apply {
 			my $orig = shift;
 			my @steps = $orig->(@_);
 			return (
-				'_run_callbacks_before_apply',
+				__PACKAGE__ . '::_run_role_tiny_before_callbacks',
 				@steps,
-				'_run_callbacks_after_apply',
+				__PACKAGE__ . '::_run_role_tiny_after_callbacks',
 			);
 		};
 		
-		install_modifier 'Role::Tiny', fresh => '_run_callbacks_before_apply', sub {
+		*_run_role_tiny_before_callbacks = sub {
 			my (undef, $to, $role) = @_;
 			$me->_debug("Calling role hooks for $role before application to $to") if DEBUG;
 			my @callbacks = @{ $CALLBACKS_BEFORE_APPLY{$role} || [] };
@@ -143,7 +143,7 @@ sub after_apply {
 			return;
 		};
 		
-		install_modifier 'Role::Tiny', fresh => '_run_callbacks_after_apply', sub {
+		*_run_role_tiny_after_callbacks = sub {
 			my (undef, $to, $role) = @_;
 			$me->_debug("Calling role hooks for $role after application to $to") if DEBUG;
 			my @callbacks = @{ $CALLBACKS_AFTER_APPLY{$role} || [] };
@@ -179,7 +179,7 @@ sub after_apply {
 			my $orig = shift;
 			my @steps = $orig->(@_);
 			return List::Util::uniqstr(
-				'_run_callbacks_before_apply',
+				__PACKAGE__ . '::_run_role_tiny_before_callbacks',
 				@steps,
 			);
 		};
