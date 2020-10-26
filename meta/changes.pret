@@ -15,3 +15,14 @@
 			comment "Fixed by using a variant of Safe::Isa to check metaclasses.";
 		];
 	].
+
+`Role-Hooks 0.003 cpan:TOBYINK`
+	issued  2020-10-26;
+	changeset [
+		item [
+			a dcs:Bugfix;
+			seealso <https://github.com/tobyink/p5-role-hooks/pull/1>;
+			dcs:thanks cpan:HAARG;
+			label "Stop polluting Role::Tiny namespace.";
+		];
+	].

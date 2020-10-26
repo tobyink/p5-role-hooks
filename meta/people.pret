@@ -10,3 +10,5 @@ cpan:TOBYINK
 cpan:DAKKAR
 	:name  "Gianni Ceccarelli".
 
+cpan:HAARG
+	:name "Graham Knop".
