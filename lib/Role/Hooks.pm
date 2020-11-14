@@ -19,18 +19,21 @@ BEGIN { *DEBUG = $ENV{'PERL_ROLE_HOOKS_DEBUG'} ? sub(){1} : sub(){0} };
 my $_isa = sub { ref( $_[0] ) and $_[0]->isa( $_[1] ) };
 
 sub _croak {
+	# uncoverable subroutine
 	my ($me, $msg, @args) = @_;
 	require Carp;
 	Carp::croak( @args ? sprintf($msg, @args) : $msg );
 }
 
 sub _carp {
+	# uncoverable subroutine
 	my ($me, $msg, @args) = @_;
 	require Carp;
 	Carp::carp( @args ? sprintf($msg, @args) : $msg );
 }
 
 sub _debug {
+	# uncoverable subroutine
 	my ($me, $msg, @args) = @_;
 	require Carp;
 	Carp::carp( @args ? sprintf($msg, @args) : $msg ) if DEBUG;
@@ -48,7 +51,7 @@ sub is_role {
 	if ($INC{'Role/Tiny.pm'}
 	and !'Role::Tiny'->can('is_role')
 	and $Role::Tiny::INFO{$target}) {
-		return 'Role::Tiny';
+		return 'Role::Tiny'; # uncoverable statement
 	}
 	
 	if ($INC{'Moose/Meta/Role.pm'}
