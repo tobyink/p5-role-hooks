@@ -384,7 +384,7 @@ defined in!
     use Role::Hooks;
     Role::Hooks->before_apply(__PACKAGE__, sub {
       my ($role, $target) = @_;
-      "$role has been applied to $target.\n";
+      print "$role has been applied to $target.\n";
     });
   }
   
@@ -408,7 +408,7 @@ If you only care about direct applications of roles (i.e. the first one):
   Role::Hooks->before_apply(__PACKAGE__, sub {
     my ($role, $target) = @_;
     return if $role ne __PACKAGE__;
-    "$role has been applied to $target.\n";
+    print "$role has been applied to $target.\n";
   });
 
 If you only care about roles being applied to classes (i.e. the second one):
@@ -416,7 +416,7 @@ If you only care about roles being applied to classes (i.e. the second one):
   Role::Hooks->before_apply(__PACKAGE__, sub {
     my ($role, $target) = @_;
     return if Role::Hooks->is_role($target);
-    "$role has been applied to $target.\n";
+    print "$role has been applied to $target.\n";
   });
 
 =item C<< after_apply >>
