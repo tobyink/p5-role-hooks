@@ -364,6 +364,9 @@ like "-excludes" and "-alias") can be passed when consuming a role. Although
 I discourage people from using these in general, if you need access to
 these arguments in the callback, you can check C<< %Role::Hooks::ARGS >>.
 
+Roles generated via L<Package::Variant> should work; see
+F<t/20packagevariant.t> for a demonstration.
+
 =head2 Methods
 
 =over
@@ -465,7 +468,7 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT AND LICENCE
 
-This software is copyright (c) 2020 by Toby Inkster.
+This software is copyright (c) 2020-2022 by Toby Inkster.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
