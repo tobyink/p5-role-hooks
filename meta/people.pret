@@ -12,3 +12,6 @@ cpan:DAKKAR
 
 cpan:HAARG
 	:name "Graham Knop".
+
+cpan:ABRAXXA
+	:name "Alexander Hartmaier".

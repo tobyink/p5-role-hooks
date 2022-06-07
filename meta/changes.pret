@@ -26,3 +26,18 @@
 			label "Stop polluting Role::Tiny namespace.";
 		];
 	].
+
+`Role-Hooks 0.004 cpan:TOBYINK`
+	issued  2022-06-07;
+	changeset [
+		item [
+			a dcs:Bugfix, dcs:Documentation;
+			dcs:fixes RT#135361;
+			label "Add missing `print` to print statements in examples.";
+			dcs:thanks cpan:ABRAXXA;
+		];
+		item [
+			a dcs:Tests, dcs:Documentation;
+			label "Test and document interaction with Package::Variant.";
+		];
+	].
