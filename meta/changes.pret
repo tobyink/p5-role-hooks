@@ -41,3 +41,12 @@
 			label "Test and document interaction with Package::Variant.";
 		];
 	].
+
+`Role-Hooks 0.005 cpan:TOBYINK`
+	issued  2022-06-17;
+	changeset [
+		item [
+			a dcs:Addition;
+			label "Add after_inflate hook.";
+		];
+	].
