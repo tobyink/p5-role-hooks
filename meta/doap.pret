@@ -7,7 +7,7 @@
 	:shortdesc            "role callbacks";
 	:homepage             <https://metacpan.org/release/Role-Hooks>;
 	:download-page        <https://metacpan.org/release/Role-Hooks>;
-	:bug-database         <http://rt.cpan.org/Dist/Display.html?Queue=Role-Hooks>;
+	:bug-database         <https://github.com/tobyink/p5-role-hooks/issues>;
 	:repository           [ a :GitRepository; :browse <https://github.com/tobyink/p5-role-hooks> ];
 	:created              2020-02-18;
 	:license              <http://dev.perl.org/licenses/>;
