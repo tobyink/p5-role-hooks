@@ -1,4 +1,5 @@
 {
+## skip Test::Tabs
 package Local::Class1;
 our $USES_MITE = q[Mite::Class];
 use strict;

@@ -1,4 +1,5 @@
 {
+## skip Test::Tabs
 package Local::Role2;
 our $USES_MITE = q[Mite::Role];
 use strict;
