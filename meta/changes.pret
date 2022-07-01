@@ -50,3 +50,12 @@
 			label "Add after_inflate hook.";
 		];
 	].
+
+`Role-Hooks 0.006 cpan:TOBYINK`
+	issued  2022-07-01;
+	changeset [
+		item [
+			a dcs:Update;
+			label "Support for roles built using Mite.";
+		];
+	].
