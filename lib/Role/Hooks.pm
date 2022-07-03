@@ -71,6 +71,7 @@ sub is_role {
 	}
 	
 	no strict 'refs';
+	no warnings 'once';
 	my $UM = ${"$target\::USES_MITE"};
 	if ( defined $UM and $UM eq 'Mite::Role' ) {
 		return 'Mite::Role';
