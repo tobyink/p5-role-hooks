@@ -59,3 +59,17 @@
 			label "Support for roles built using Mite.";
 		];
 	].
+
+`Role-Hooks 0.007 cpan:TOBYINK`
+	issued  2022-07-04;
+	changeset [
+		item [
+			a dcs:Bugfix;
+			label "Eliminate 'used only once' warnings.";
+			dcs:thanks cpan:ABRAXXA;
+		];
+		item [
+			a dcs:Tests;
+			label "Include a test that a known non-role returns false from is_role.";
+		];
+	].
