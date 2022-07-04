@@ -1,12 +1,12 @@
 use strict;
 use warnings;
 use Test::More;
-use Role::Tiny;
+use Role::Hooks;
 
 BEGIN {
 	package Foo;
 	sub new { bless [], shift }
 };
 
-ok ! Role::Tiny->is_role( 'Foo' );
+ok ! Role::Hooks->is_role( 'Foo' );
 done_testing;
