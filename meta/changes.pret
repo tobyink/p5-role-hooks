@@ -73,3 +73,13 @@
 			label "Include a test that a known non-role returns false from is_role.";
 		];
 	].
+
+`Role-Hooks 0.008 cpan:TOBYINK`
+	issued  2022-07-04;
+	changeset [
+		item [
+			a dcs:Bugfix;
+			label "Fix accidental dependency on Role::Tiny.";
+			dcs:thanks cpan:TINITA;
+		];
+	].

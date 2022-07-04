@@ -7,7 +7,7 @@ package Role::Hooks;
 use Class::Method::Modifiers qw( install_modifier );
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.007';
+our $VERSION   = '0.008';
 
 our %CALLBACKS_BEFORE_APPLY;
 our %CALLBACKS_AFTER_APPLY;
