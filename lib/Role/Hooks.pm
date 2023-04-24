@@ -259,7 +259,8 @@ sub after_inflate {
 		
 		require Moose::Meta::Role;
 		
-		install_modifier 'Moose::Meta::Role', around => 'apply', sub {
+		my $apply_any;
+		my $apply_plain = sub {
 			my ($orig, $role_meta, $to_meta, %args) = @_;
 			local *ARGS = \%args;
 			my $role = $role_meta->name;
@@ -286,6 +287,38 @@ sub after_inflate {
 			}
 			return $application;
 		};
+		my $apply_composite = sub {
+			my ($orig, @opts) = @_;
+			my ($role_meta, $to_meta, %args) = @opts;
+			
+			my $orig_curr = sub {
+				$apply_plain->($orig, @opts);
+			};
+			for my $subrole_meta (@{$role_meta->{roles}}){
+				my $orig_old = $orig_curr;
+				$orig_curr = sub {
+					$apply_any->(
+						$orig_old,
+						$subrole_meta,
+						$to_meta,
+						%args,
+					);
+				};
+			}
+			
+			return $orig_curr->(@opts);
+		};
+		$apply_any = sub {
+			my ($orig, $role_meta, $to_meta, %args) = @_;
+			
+			if($role_meta->isa('Moose::Meta::Role::Composite')){
+				$apply_composite->(@_);
+			}else{
+				$apply_plain->(@_);
+			}
+		};
+		
+		install_modifier 'Moose::Meta::Role', around => 'apply', $apply_any;
 		
 		return 1;
 	}
